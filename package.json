@@ -2,7 +2,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.16.4",
-    "sequelize": "^4.43.2",
+    "sequelize": ">=5.3.0",
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
