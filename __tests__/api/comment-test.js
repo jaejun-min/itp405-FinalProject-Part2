@@ -57,7 +57,7 @@ it('should return a 204 when deleting a comment that does  exist', ()=>{
     .expect('status', 204);
 });
 
-it('should return a 404 when deleting a comments that not exists', ()=>{
+it('should return a 404 when deleting a commeents that not exists', ()=>{
   return frisby
     .del('http://localhost:8000/api/comments/-1')
     .expect('status', 404);
