@@ -53,7 +53,7 @@ it('should return a status of 422 when the track has validation errors',()=>{
 
 it('should return a 204 when deleting a comment that does  exist', ()=>{
   return frisby
-    .del('http://localhost:8000/api/comments/1')
+    .del('http://localhost:8000/api/comments/2')
     .expect('status', 204);
 });
 
