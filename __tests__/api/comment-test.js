@@ -30,7 +30,7 @@ it('should create an comment', ()=>{
       content:'ITP405 post test content'
     })
     .expect('status', 200)
-    .expect('json', 'title', 'ITP405 post test')
+    .expect('json', 'title', 'ITP405 post')
     .expect('jsonTypes', 'id', Joi.number().required());
 });
 
@@ -51,14 +51,14 @@ it('should return a status of 422 when the track has validation errors',()=>{
     .expect('status', 422);
 });
 
-// it('should return a 204 when deleting a comment that does  exist', ()=>{
-//   return frisby
-//     .del('http://localhost:8000/api/comments/1')
-//     .expect('status', 204);
-// });
-//
-// it('should return a 404 when deleting a comments that not exists', ()=>{
-//   return frisby
-//     .del('http://localhost:8000/api/comments/-1')
-//     .expect('status', 404);
-// });
+it('should return a 204 when deleting a comment that does  exist', ()=>{
+  return frisby
+    .del('http://localhost:8000/api/comments/1')
+    .expect('status', 204);
+});
+
+it('should return a 404 when deleting a comments that not exists', ()=>{
+  return frisby
+    .del('http://localhost:8000/api/comments/-1')
+    .expect('status', 404);
+});
