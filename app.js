@@ -40,16 +40,14 @@ College.belongsToMany(Major,{
 });
 
 
-app.delete('/api/comment/:id', function(request, response) {
+app.delete('/api/comments/:id', function(request, response) {
   let { id } = request.params;
 
-  Playlist
+  Comment
     .findByPk(id)
     .then((comment) => {
       if (comment) {
-        return comment.setTracks([]).then(() => {
           return comment.destroy();
-        });
       } else {
         return Promise.reject();
       }
@@ -63,9 +61,9 @@ app.delete('/api/comment/:id', function(request, response) {
 
 app.post('/api/comments', function(request, response) {
   Comment.create({
-    title: 'third test',
-    content:'third test third test third test',
-    student_id: 3,
+    title: request.body.title,
+    content:request.body.content,
+    student_id: 1,
   }).then((comment) => {
     response.json(comment);
   }, (validation) => {
@@ -82,7 +80,6 @@ app.post('/api/comments', function(request, response) {
 app.get('/api/comments', function(request, response) {
   let filter = {};
   let { q } = request.query;
-
   if (q) {
     filter = {
       where: {
@@ -107,9 +104,9 @@ app.patch('/api/comments/:id', function(request, response){
     }
   }).then(()=>{
     Comment.update({
-      title: request.body.name,
-      content: request.body.milliseconds,
-      student_id: request.body.unitPrice},
+      title: request.body.title,
+      content: request.body.content,
+      student_id: request.body.student_id},
       {
         where:{ id : request.params.id }
     }).then(()=>{
@@ -142,5 +139,34 @@ app.get('/api/comments/:id', function(request, response) {
     }
   });
 });
+app.get('/api/students/:id', function(request, response) {
+  let { id } = request.params;
+
+  Student.findByPk(id).then((comment) => {
+    if (comment) {
+      response.json(comment);
+    } else {
+      response.status(404).send();
+    }
+  });
+});
+app.get('/api/students', function(request, response) {
+  let filter = {};
+  let { q } = request.query;
+  if (q) {
+    filter = {
+      where: {
+        title: {
+          [Op.like]: `${q}%`
+        }
+      }
+    };
+  }
+  Student.findAll(filter).then((comments) => {
+    response.json(comments);
+  });
+});
+
+
 
 app.listen(8000);

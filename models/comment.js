@@ -15,6 +15,10 @@ module.exports = sequelize.define('comment', {
       notEmpty: {
         args: true,
         msg: 'title is required'
+      },
+      len:{
+        args:[2,40],
+        msg:'Minimum 2 characters Max 40 required in title'
       }
     }
   },
