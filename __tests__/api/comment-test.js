@@ -59,6 +59,6 @@ it('should return a 404 when deleting a comments that exists', ()=>{
 
 it('should return a 204 when deleting a comment that does not exist', ()=>{
   return frisby
-    .del('http://localhost:8000/api/comments/4')
+    .del('http://localhost:8000/api/comments/1')
     .expect('status', 204);
 });
