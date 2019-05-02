@@ -1,9 +1,9 @@
 {
   "scripts": {
-  "test": "git checkout database.db; forever start app.js; ./node_modules/jest/bin/jest.js; forever stop app.js;"
-},
+    "test": "git checkout database.db; forever start app.js; ./node_modules/jest/bin/jest.js; forever stop app.js;"
+  },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "sequelize": "^4.42.1",
     "sqlite3": "^4.0.6"
