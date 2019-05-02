@@ -1,6 +1,6 @@
-// const frisby = require('frisby');
-// const{Joi} = frisby;
-// // const Joi = frisby.Joi;
+const frisby = require('frisby');
+const{Joi} = frisby;
+// const Joi = frisby.Joi;
 // it('should return a status of 200 when the comment is found',()=>{
 //   return frisby
 //     .get('http://localhost:8000/api/comments/4')
@@ -22,18 +22,18 @@
 //       name: Joi.string().required()
 //     });
 // });
-//
-// it('should create an comment', ()=>{
-//   return frisby
-//     .post('http://localhost:8000/api/comments', {
-//       title: 'ITP405 post',
-//       content:'ITP405 post test content'
-//     })
-//     .expect('status', 200)
-//     .expect('json', 'title', 'ITP405 post')
-//     .expect('jsonTypes', 'id', Joi.number().required());
-// });
-//
+
+it('should create an comment', ()=>{
+  return frisby
+    .post('http://localhost:8000/api/comments', {
+      title: 'ITP405 post',
+      content:'ITP405 post test content'
+    })
+    .expect('status', 200)
+    .expect('json', 'title', 'ITP405 post')
+    .expect('jsonTypes', 'id', Joi.number().required());
+});
+
 // it('should return a status of 200 when the comment is updated successfully',()=>{
 //   return frisby
 //     .patch('http://localhost:8000/api/comments/6',{
