@@ -27,7 +27,7 @@ module.exports = sequelize.define('student', {
     validate:{
       isNumeric:{
         args: true,
-        msg: 'Milliseconds is not numeric'
+        msg: 'Graduation year is not numeric'
       }
     }
   },
@@ -45,7 +45,7 @@ module.exports = sequelize.define('student', {
       },
       len:{
         args:[5],
-        msg:'Minimum 4 characters required in intro'
+        msg:'Minimum 5 characters required in intro'
       }
     }
   }
