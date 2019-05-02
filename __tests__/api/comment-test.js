@@ -7,7 +7,7 @@ it('should return a status of 200 when the comment is found',()=>{
     .expect('status', 200);
 });
 
-it('should return a status of 404 when the track does not exist',()=>{
+it('should return a status of 404 when the comment does not exist',()=>{
   return frisby
     .get('http://localhost:8000/api/comments/-1')
     .expect('status', 404);
