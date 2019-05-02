@@ -3,7 +3,7 @@ const{Joi} = frisby;
 // const Joi = frisby.Joi;
 it('should return a status of 200 when the comment is found',()=>{
   return frisby
-    .get('http://localhost:8000/api/comments/1')
+    .get('http://localhost:8000/api/comments/4')
     .expect('status', 200);
 });
 
@@ -34,15 +34,15 @@ it('should create an comment', ()=>{
     .expect('jsonTypes', 'id', Joi.number().required());
 });
 
-it('should return a status of 200 when the track is updated successfully',()=>{
+it('should return a status of 200 when the comment is updated successfully',()=>{
   return frisby
-    .patch('http://localhost:8000/api/comments/1',{
+    .patch('http://localhost:8000/api/comments/6',{
       title: 'Test api patch',
       content: "Hello test api comment test"
     })
     .expect('status', 200)
 });
-it('should return a status of 422 when the track has validation errors',()=>{
+it('should return a status of 422 when the comment has validation errors',()=>{
   return frisby
     .patch('http://localhost:8000/api/comments/5',{
       title: "",
